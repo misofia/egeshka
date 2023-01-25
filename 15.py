@@ -18,6 +18,14 @@ for A in range(999, 0, -1):
   if (i == 998):
     print(A)
 
+for A in range(1, 1000):
+    i = 0
+    for x in range(1, 1000):
+        if (A % 3 == 0) and ((220 % x == 0) <= ((A % x != 0) <= (550 % x != 0))):
+            i += 1
+        if i == 999:
+            print(A)
+
 # КОНЬЮНКЦИЯ
 for A in range(0,100,1):
   i = 0
