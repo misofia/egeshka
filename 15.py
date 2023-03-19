@@ -1,3 +1,12 @@
+# Универсальный код
+def f(x, a):
+    return (x % 25 != 0) <= ((x % 19 == 0) <= (x % a != 0))
+
+
+for a in range(1, 1000):
+    if all(f(x, a) == 1 for x in range(1, 100)):
+        print(a)
+        
 # ДЕЛЕНИЕ
 for A in range(1, 500):
     flag = 0
