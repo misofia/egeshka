@@ -3,7 +3,7 @@
 # f.close()
 
 # чтение файла в строки
-s = open('24_1.txt').readline()
+'''s = open('24_1.txt').readline()
 s = s.replace('B', ' ').replace('C', ' ')
 s = s.split()
 print(len(max(s, key = len)))
@@ -17,6 +17,21 @@ m = 0
 k = 1
 for i in range(len(a)):
     if a[i] != a[i - 1]:
+        k += 1
+    else:
+        m = max(k, m)
+        k = 1
+m = max(k, m)
+print(m)'''
+
+# поляков
+s = open('24-253.txt').readline()
+gl = 'AO'
+sgl = 'CDF'
+m = 0
+k = 1
+for i in range(2, len(s), 3):
+    if s[i - 2] in sgl and s[i] in gl:
         k += 1
     else:
         m = max(k, m)
