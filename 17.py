@@ -33,12 +33,12 @@ for i in a:
 print(max(ans), sum(ans))'''
 
 # 4313
-a = [int(x) for x in open('17-4.txt')]
+'''a = [int(x) for x in open('17-4.txt')]
 ans = []
 for i in a:
     if a[i] % 2 ** 4 == 1 and a[i] % 2 ** 3 == 0 and a[i] % 2 ** 2 == 0 and a[i] % 2 == 1 and a[i] % 5 ** 2 == 1 and a[i] % 5 == 1:
         ans.append(i)
-print(max(ans))
+print(max(ans))'''
 
 # Номер 37348 РЕШУ ЕГЭ
 '''a = [int(x) for x in open('17 (1).txt')]
@@ -132,3 +132,12 @@ for i in range(len(a) - 1):
     if (a[i] > m1 or a[i+1] > m1):
         ans.append(a[i] + a[i+1])
 print(len(ans), min(ans))'''
+
+# 1
+a = [int(x) for x in open('17 (15).txt')]
+ans = []
+for i in range(len(a) + 1):
+    for j in range(i + 1, len(a)):
+        if (a[i] + a[j]) % 2 != 0 and (a[i] * a[j]) % 5 == 0:
+            ans.append(a[i] + a[j])
+print(len(ans), max(ans))
