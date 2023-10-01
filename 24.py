@@ -22,7 +22,7 @@ for i in range(len(a)):
         m = max(k, m)
         k = 1
 m = max(k, m)
-print(m)'''
+print(m)
 
 # поляков
 s = open('24-253.txt').readline()
@@ -37,4 +37,18 @@ for i in range(2, len(s), 3):
         m = max(k, m)
         k = 1
 m = max(k, m)
+print(m)'''
+
+# не более одной "А"
+a = open('24.txt').readline()
+m = 0
+c1 = c2 = 0
+for i in a:
+    if i != 'A':
+        c2 += 1
+    else:
+        m = max(m, c1 + c2 + 1)
+        c1 = c2
+        c2 = 0
+m = max(m, c1 + c2 + 1)
 print(m)
