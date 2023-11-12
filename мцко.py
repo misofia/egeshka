@@ -67,3 +67,8 @@ for i in range(len(a) - 1):
 print(len(ans), min(ans))'''
 
 # №5
+'''import struct
+def float_to_bin(num):
+   bits, = struct.unpack('!I', struct.pack('!f', num))
+   return "{:032b}".format(bits)
+print(hex(int(float_to_bin(-14.75),2)))'''
