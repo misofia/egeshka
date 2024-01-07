@@ -104,7 +104,7 @@ for x in range(20):
             if a.count('1') == 56 and a.count('2') == 44 and a.count('3') == 19:
                 print(x + y + z + 2)'''
 
-for x in range(50):
+'''for x in range(50):
     a = '0' + '1' * x + '2' * x + '0'
     while '00' not in a:
         a = a.replace('011', '20', 1)
@@ -112,4 +112,13 @@ for x in range(50):
         a = a.replace('01', '220', 1)
         a = a.replace('02', '110', 1)
         if a.count('1') == 40 and a.count('2') > 50:
-            print(a.count('2'))
+            print(a.count('2'))'''
+
+for n in range(3, 1001):
+    s = '9' + '4' * n
+    while '94' in s or '644' in s or '444' in s:
+        s = s.replace('94', '4', 1)
+        s = s.replace('644', '49', 1)
+        s = s.replace('444', '6', 1)
+    if s.count('4') != 0 and n // s.count('4') == 18:
+        print(n)

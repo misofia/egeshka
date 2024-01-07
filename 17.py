@@ -132,12 +132,3 @@ for i in range(len(a) - 1):
     if (a[i] > m1 or a[i+1] > m1):
         ans.append(a[i] + a[i+1])
 print(len(ans), min(ans))'''
-
-# 1
-a = [int(x) for x in open('17 (15).txt')]
-ans = []
-for i in range(len(a) + 1):
-    for j in range(i + 1, len(a)):
-        if (a[i] + a[j]) % 2 != 0 and (a[i] * a[j]) % 5 == 0:
-            ans.append(a[i] + a[j])
-print(len(ans), max(ans))

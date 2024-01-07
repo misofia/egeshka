@@ -45,7 +45,7 @@ for ip in net:
 print(k)'''
 
 # 7048
-from ipaddress import *
+'''from ipaddress import *
 k = 0
 for A in range(256):
     net = ip_network(f'159.242.{A}.223/255.255.254.0', 0)
@@ -56,4 +56,4 @@ for A in range(256):
             flag = 1
             break
     if flag == 0:
-        print(A)
+        print(A)'''
