@@ -132,3 +132,15 @@ for i in range(len(a) - 1):
     if (a[i] > m1 or a[i+1] > m1):
         ans.append(a[i] + a[i+1])
 print(len(ans), min(ans))'''
+
+# минимальный из послед., кратный 21
+'''a = [int(x) for x in open('107_17.txt')]
+ans = []
+m = 100000
+for j in range(len(a)):
+    if a[j] < m and a[j] % 21 == 0:
+        m = a[j]
+for i in range(len(a) - 1):
+    if a[i] % m == 0 or a[i + 1] % m == 0:
+        ans.append(a[i] + a[i + 1])
+print(len(ans), max(ans))'''

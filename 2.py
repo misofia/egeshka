@@ -6,7 +6,7 @@ for x in range(0, 2):
                 if ((x <= y) == (y <= z)) and (y or w):
                     print(x, y, z, w)'''
 
-from itertools import *
+'''from itertools import *
 
 
 def f(x, y, z, w):
@@ -20,4 +20,13 @@ for a in product([0, 1], repeat = 7):
     if len(table) == len(set(table)):
         for p in permutations('xyzw'):
             if [f(**dict(zip(p, r))) for r in table] == [0, 0, 0]:
-                print(p)
+                print(p)'''
+
+# f = и 0 и 1
+'''print('X Y Z W F')
+for x in range(2):
+    for y in range(2):
+        for z in range(2):
+            for w in range(2):
+                f = int((x == (not y)) <= ((z <= (not w)) and (w <= y)))
+                print(x, y, z, w, f)'''
