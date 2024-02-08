@@ -251,3 +251,33 @@ for i in range(123456789, 223456789):
         if len(a) == 3:
             a.sort()
             print(i, max(a))'''
+
+# ДЕЛИТЕЛИ
+# все делители:
+'''def f(n):
+    d = set()
+    for i in range(1, int(n ** 0.5 + 1)): # может начинаться с 2 потому что нужны нетривиальные делители
+        if n % i == 0:
+            d.add(i)
+            d.add(n // i)
+    return sorted(d)
+
+
+# 27422
+for x in range(174457, 174506):
+    if len(f(x)) == 4:
+        print(f(x))'''
+
+# 33104
+def f(n): # большой диапазон, надо анализировать, подходят только простые числа в 4 степени
+    d = set()
+    for i in range(1, int(n ** 0.5 + 1)):
+        if n % i == 0:
+            d.add(i)
+            d.add(n // i)
+    return sorted(d)
+
+
+for x in range(int(289123456 ** 0.25), int(389123456 ** 0.25) + 1):
+    if len(f(x)) == 2:
+        print(x ** 4, x ** 3)
