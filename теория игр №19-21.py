@@ -1,5 +1,5 @@
 # №19 - 21 (одна куча)
-def f(s, c, m): # s - знчение, с - номер хода, m - выигрышный ход
+'''def f(s, c, m): # s - знчение, с - номер хода, m - выигрышный ход
     if s >= 129: return c % 2 == m % 2
     if c == m: return 0
     h = [f(s + 1, c + 1, m), f(s * 2, c + 1, m)] # ходы
@@ -76,4 +76,19 @@ for s in range(1, 121):
     for m in range(1, 7):
         if f(s, '', '', 0, m) == 1:
             print(s, m)
-            break
+            break'''
+
+# 5885 КЕГЭ (19)
+def f(s, m): # s - знчение, с - номер хода, m - выигрышный ход
+    if s == 42: return m % 2 == 0
+    if m == 0: return 0
+    if s < 42:
+        h = [f(s + 1, m - 1), f(s + 3, m - 1), f(s + 7, m - 1)]
+    elif s > 42:
+        h = [f(s - 1, m - 1), f(s - 3, m - 1), f(s - 7, m - 1)] # ходы
+    return any(h) if (m - 1) % 2 == 0 else any(h)
+
+
+for s in range(1, 10000):
+    if f(s,2): # Петя может выиграть за свой 2 ход, но не может за 1: if f(s,3) and not f(s, 2)
+        print(s)
