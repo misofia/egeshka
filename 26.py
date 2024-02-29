@@ -70,7 +70,7 @@ for i in range(1, len(a)):
 print(k, b)'''
 
 # 10726 КЕГЭ
-a = open('26_10726 (1).txt')
+'''a = open('26_10726 (1).txt')
 n = int(a.readline()) # 1 строка - количество пар
 s = [list(map(int, x.split())) for x in a]
 mn = [0] * 44641 # вообще максимальное значение числа
@@ -81,4 +81,82 @@ for i in range(n):
 print(sum(mn))
 s1 = ''.join(map(str, mn)) # как в 24 задании искать максимальную последовательность единиц
 s1 = s1.split('0')
-print(len(max(s1, key = len)))
+print(len(max(s1, key = len)))'''
+
+# КЕГЭ №12933
+'''f = open('26_12933.txt')
+n, k = [int(x) for x in f.readline().split()] # прочитали и разредали, получили 2 строчки состоящие из цифр
+a = []
+for i in range(1, n + 1): # n - кол-во иттераций; перебором захватываем всё
+    ts, to = [int(x) for x in f.readline().split()] # ts - время шлифовки, to - время окрашивания
+    a.append((ts, i, 's')) # делаем картежи s - шлифовка, o - окрашивание
+    a.append((to, i, 'o'))
+a.sort() # время по возврастанию
+lenta = [0] * (n + 1) # метод для выведения по номеру места, создание ленты
+ks = 0 # кол-во отшлифованных деталей
+spo = set() # создаём множество окрашнных деталей
+start, end = 1, n # start - первое место на ленте, end - последнее место на ленте
+for t, id, op in a: # t - время , id - айди, op - операция
+    if id not in spo: # проверили есть ли деталь
+        spo.add(id) # добавляет окрашенные детали
+        if op == 's': # если деталь для шлифовки
+            lenta[start] = id # ставим этот элемент в начало ленты
+            start += 1
+            ks += 1
+        else: # если деталь для окрашивания
+            lenta[end] = id # ставим этот элемент в конец ленты
+            end -= 1 # -= потому что идём с конца
+print(ks, lenta[k])'''
+
+# КЕГЭ №13101
+'''f = open('26_13101.txt')
+n = int(f.readline())
+a = []
+for i in f:
+    st, t, o =  [int(x) for x in i.split()] # st - начало время обслуживания, t - время обслуживания, o - окно
+    a.append((st, t, o)) # создаём картеж
+a.sort()
+okno1 = [] # первая очередь
+okno2 = [] # вторая очередь
+kn = 0 # счёчтик необслуженных
+k2 = 0 # счётчик второго окна
+for st, t, o in a:
+    okno1 = [x for x in okno1 if x > st]
+    okno2 = [x for x in okno2 if x > st]
+    if o == 1 or (o == 0 and len(okno1) <= len(okno2)):
+        if len(okno1) >= 14:
+            kn += 1
+            continue
+        if len(okno1) == 0:
+            okno1 += [st + t]
+        else:
+            okno1 += [max(okno1) + t]
+    else:
+        if len(okno2) >= 14:
+            kn += 1
+            continue
+        k2 += 1
+        if len(okno2) == 0:
+            okno2 += [st + t]
+        else:
+            okno2 += [max(okno2) + t]
+print(k2, kn)'''
+
+# 12478 КЕГЭ
+f = open('26_12478.txt')
+n = f.readline()
+st_ege = 1000
+end_ege = 18000
+rab = []
+a = []
+for i in f:
+    st, end =  [int(x) for x in i.split()] # st - начало время обслуживания, end - окончание обслуживания
+    a.append((st, end)) # создаём картеж
+a.sort()
+for i in range(len(a)):
+    if a[i][1] <= st_ege:
+        continue
+    else:
+        if a[i][0] <= st_ege and a[i + 1][0] <= a[i][1]:
+            rab += [a[i][1] - a[i][0]]
+print(len(rab))
