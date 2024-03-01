@@ -31,27 +31,24 @@ for x in range(2):
                 f = int((x == (not y)) <= ((z <= (not w)) and (w <= y)))
                 print(x, y, z, w, f)'''
 
+# 6616
 '''from itertools import *
-
-
 def f1(x, y, z, w):
     return (x <= y) or ((not w) == z)
-
-
 def f2(x, y, z, w):
-    return (x <= y) == (w and (not z))
+    return (x <= y) == (w and not z)
 
 
-for a in product([0, 1], repeat=6):
-    table = [(a[0], a[1], a[2], 0),  # 1 строка
+for a in product([0, 1], repeat = 6):
+    table = [(a[0], a[1], a[2], 0), # 1 строка
              (a[3], a[4], 0, 0),
              (a[5], 0, 0, 0)]
     if len(table) == len(set(table)):
         for p in permutations('xyzw'):
             if [f1(**dict(zip(p, r))) for r in table] == [f2(**dict(zip(p, r))) for r in table]:
-                print(p)
-'''
+                print(p)'''
 
+# 6365
 '''from itertools import *
 
 
@@ -68,11 +65,25 @@ for a in product([0, 1], repeat=3):
              (a[1], 0, 1, 1),
              (0, 0, a[2], 0)]
     if len(table) == len(set(table)):
-        for p in permutations('xyzw'):
-            if [f1(**dict(zip(p, r))) for r in table][0] == 0 and [f1( ** dict(zip(p, r))) for r in table][2] == 0 and [f2(**dict(zip(p, r))) for r in table][1] == 0 and [f2(**dict(zip(p, r))) for r in table][2] == 1:
-                print(p)'''  # 6365
+        for p in permutations('xyzw'):              # [0] - первая строка
+            if ([f1(**dict(zip(p, r))) for r in table][0] == 0 and [f2(**dict(zip(p, r))) for r in table][1] == 0 and 
+                    [f1(**dict(zip(p, r))) for r in table][2] == 0 and [f2(**dict(zip(p, r))) for r in table][2] == 1):
+                print(p)'''
 
+# 6837
 from itertools import *
 
 
-print((a and b) == (not c)) and (b and d)
+def f(x1, x2, x3, x4, x5):
+    return (x1 or not x2 or not x3 or x4 or not x5) and (not x1 or not x2 or x3 or x4 or x5) and (x1 or not x2 or not x3 or not x4 or x5)
+
+
+p = ['x1', 'x2', 'x3', 'x4', 'x5']
+for a in product([0, 1], repeat = 3):
+    table = [(0, 1, 1, 0, a[0]), # 1 строка
+             (0, 1, 1, 1, 0),
+             (0, 1, a[1], a[2], 1),
+             (0, 0, 0, 1, 0)]
+    if len(table) == len(set(table)):
+        if [f(**dict(zip(p, r))) for r in table][0] == 1 and [f(**dict(zip(p, r))) for r in table][2] == 0:
+            print(a[0], [f(**dict(zip(p, r))) for r in table][1], a[1], a[2], [f(**dict(zip(p, r))) for r in table][3])
