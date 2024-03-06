@@ -71,7 +71,7 @@ for a in product([0, 1], repeat=3):
                 print(p)'''
 
 # 6837
-from itertools import *
+'''from itertools import *
 
 
 def f(x1, x2, x3, x4, x5):
@@ -86,4 +86,38 @@ for a in product([0, 1], repeat = 3):
              (0, 0, 0, 1, 0)]
     if len(table) == len(set(table)):
         if [f(**dict(zip(p, r))) for r in table][0] == 1 and [f(**dict(zip(p, r))) for r in table][2] == 0:
-            print(a[0], [f(**dict(zip(p, r))) for r in table][1], a[1], a[2], [f(**dict(zip(p, r))) for r in table][3])
+            print(a[0], [f(**dict(zip(p, r))) for r in table][1], a[1], a[2], [f(**dict(zip(p, r))) for r in table][3])'''
+
+# 7664
+'''from itertools import *
+
+
+def f(a, b, c, d):
+    return ((a and b) == (not c)) and (b <= d) # или and, or, ==
+
+p = ['c', 'a', 'd', 'b']
+table = [(1, 0, 0, 0),
+         (1, 0, 1, 0),
+         (1, 0, 1, 1),
+         (1, 1, 0, 0)]
+if [f(**dict(zip(p, r))) for r in table] == [1, 1, 1, 1]:
+    print(p)'''
+
+# 2695 (сколько ответов)
+from itertools import *
+
+
+def f(w, x, y, z):
+    return (w or y) and (x <= (not z)) and (not w)
+
+
+ans = set()
+for a in product([0, 1], repeat=5):
+    t = [(a[0], 0, a[1], 0),
+         (1, a[2], a[3], a[4]),
+         (1, 1, 0, 0)]
+    if len(t) == len(set(t)):
+        for p in permutations('wxyz'):
+            if [f(**dict(zip(p, r))) for r in t] == [1, 1, 1]:
+                ans.add(p)
+print(len(ans))
