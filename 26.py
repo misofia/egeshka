@@ -143,11 +143,12 @@ for st, t, o in a:
 print(k2, kn)'''
 
 # 12478 КЕГЭ
-f = open('26_12478.txt')
+'''f = open('26_12478.txt')
 n = f.readline()
 st_ege = 1000
 end_ege = 18000
 rab = []
+ans = []
 a = []
 for i in f:
     st, end =  [int(x) for x in i.split()] # st - начало время обслуживания, end - окончание обслуживания
@@ -157,6 +158,49 @@ for i in range(len(a)):
     if a[i][1] <= st_ege:
         continue
     else:
-        if a[i][0] <= st_ege and a[i + 1][0] <= a[i][1]:
-            rab += [a[i][1] - a[i][0]]
-print(len(rab))
+        if a[i][0] <= st_ege and a[i + 1][1] > st_ege and a[i + 1][0] <= a[i][1]:
+            rab += [a[i][1] - st_ege]
+print(max(rab))
+for i in range(len(a) - 1):
+    if a[i][0] != a[i + 1][0]:
+        ans.append(a[i])
+        break
+
+for i in range(len(a) - 1):
+    if ans[-1][1] == a[i][0]:
+        for j in range(i, len(a)):
+            if a[i][0] != a[i + 1][0]:
+                ans.append(a[i])
+                break
+print(len(ans))'''
+
+# 11605 (доделать)
+f = open('26_11605.txt')
+n = f.readline()
+st_ege = 1000
+end_ege = 18000
+k = []
+ans = []
+a = []
+for i in f:
+    st, end =  [int(x) for x in i.split()] # st - начало время обслуживания, end - окончание обслуживания
+    a.append((st, end)) # создаём картеж
+a.sort()
+for i in range(len(a) - 1):
+    if a[i][1] == 10000:
+        k.append(a[i])
+print(len(k))
+for i in range(len(a) - 1):
+    if a[i][0] != a[i + 1][0]:
+        ans.append(a[i])
+        break
+m = []
+for i in range(len(a) - 1):
+    if ans[-1][1] <= a[i][0]:
+        m.append(a[i][1])
+        print(m)
+        if a[i][1] == max(m):
+            ans.append(a[i])
+            m = []
+print(10000 - len(ans))
+print(m)
