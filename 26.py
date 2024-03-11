@@ -183,8 +183,8 @@ k = []
 ans = []
 a = []
 for i in f:
-    st, end =  [int(x) for x in i.split()] # st - начало время обслуживания, end - окончание обслуживания
-    a.append((st, end)) # создаём картеж
+    st, end =  [int(x) for x in i.split()]
+    a.append((st, end))
 a.sort()
 for i in range(len(a) - 1):
     if a[i][1] == 10000:
