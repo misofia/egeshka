@@ -17,7 +17,7 @@ for a1 in range(400, 600):
         if all(f(x, a1, a2) == 1 for x in range(400, 600)):
             m = max(m, a2 - a1)
 
-print(m//10)''' # всегда m//10
+print(m//10)'''  # всегда m//10
 
 # треугольник
 '''def t(n,m,k):
@@ -27,7 +27,7 @@ def f(A,x):
 for A in range(1000):
     if all (f(A,x) for x in range(1000)):
         print(A)'''
-        
+
 # ДЕЛЕНИЕ
 '''for A in range(1, 500):
     flag = 0
@@ -148,10 +148,163 @@ for a in range(1, 100):
         print(a)'''
 
 # 5880
-def f(x, a):
+'''def f(x, a):
     return ((x < (5 + a)) and (5 < (x + a)) and (a < (5 + x))) <= ((max(x, 11) <= 19) == (23 + 13 + x != 180))
 
 
 for a in range(1, 1000):
     if all(f(x, a) == 1 for x in range(1, 1000)):
-        print(a)
+        print(a)'''
+
+# 4881 Поляков (множества)
+'''a = set()
+p = {1, 12}
+q = {12, 13, 14, 15, 16}
+def f(x):
+    A = x in a
+    P = x in p
+    Q = x in q
+    return (not A) <= (not P and not Q)
+
+
+for x in range(-100, 1000):
+    if f(x) == 0:
+        a.add(x)
+print(a)'''
+
+# 3434
+'''a = set(range(1000))
+p = {2, 4, 6, 8, 10, 12, 14, 16, 18, 20}
+q = {5, 10, 15, 20, 25, 30, 35, 40, 45, 50}
+def f(x):
+    A = x in a
+    P = x in p
+    Q = x in q
+    return (A <= P) or ((not Q) <= (not A))
+
+
+for x in range(1000):
+    if f(x) == 0:
+        a.remove(x)
+print(len(a))'''
+
+# 2081 КЕГЭ
+'''from itertools import *
+b = [''.join(i) for i in product('01', repeat=8)]
+
+a = set()
+p = {i for i in b if i[0] == i[1] == '1'} # if i[:2] == '11'
+q = {i for i in b if i[-1] == '0'}
+
+def f(x):
+    A = x in a
+    P = x in p
+    Q = x in q
+    return (not A) <= (P or (not Q))
+
+
+for x in b:
+    if f(x) == 0:
+        a.add(x)
+print(len(a))'''
+
+# 4284
+'''from itertools import *
+
+p = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+q = {2, 4, 8, 10}
+def f(x):
+    A = x in a
+    P = x in p
+    Q = x in q
+    return (Q <= A) and (A <= P)
+
+
+k = 0
+for i in range(1, 11):
+    for a in combinations(p, i):
+        if all(f(x) for x in p):
+            k += 1
+print(k)'''
+
+# 1072
+a = set(range(1000))
+p = {2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30}
+q = {1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31}
+def f(x):
+    A = x in a
+    P = x in p
+    Q = x in q
+    return (A <= P) and (Q <= (not A))
+
+
+for x in range(-100, 1000):
+    if f(x) == 0:
+        a.remove(x)
+print(len(a))
+
+# 12924
+a = set(range(1000))
+p = { 2, 4, 6, 8, 10, 12, 14, 16, 18, 20}
+q = { 3, 6, 9, 12, 15, 18, 21, 24, 27, 30}
+def f(x):
+    A = x in a
+    P = x in p
+    Q = x in q
+    return (A <= P) and ((not Q) <= (not A))
+
+
+for x in range(-100, 1000):
+    if f(x) == 0:
+        a.remove(x)
+print(len(a))
+
+# 4283
+a = set()
+p = {1, 3, 4, 9, 11, 13, 15, 17, 19, 21}
+q = {3, 6, 9, 12, 15, 18, 21, 24, 27, 30}
+def f(x):
+    A = x in a
+    P = x in p
+    Q = x in q
+    return (P <= A) or ((not A) <= (not Q))
+
+
+for x in range(-100, 1000):
+    if f(x) == 0:
+        a.add(x)
+print(9 * 3 * 21 * 15)
+
+# 3156
+a = set(range(1000))
+p = {2, 4, 6, 8, 10, 12, 14, 16, 18, 20}
+q = {5, 10, 15, 20, 25, 30, 35, 40, 45, 50}
+def f(x):
+    A = x in a
+    P = x in p
+    Q = x in q
+    return (A <= P) and (Q <= (not A))
+
+
+for x in range(-100, 1000):
+    if f(x) == 0:
+        a.remove(x)
+print(len(a))
+
+# 1409
+a = set()
+p = {2,4,6,8,10,12,14,16,18,20}
+q = {3,6,9,12,15,18,21,24,27,30}
+r = {12,24,36,48,60}
+def f(x):
+    A = x in a
+    P = x in p
+    Q = x in q
+    R = x in r
+    return (not A) <= ((P and Q) <= R)
+
+
+for x in range(-100, 1000):
+    if f(x) == 0:
+        a.add(x)
+print(18 * 6)
