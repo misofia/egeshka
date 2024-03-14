@@ -143,11 +143,12 @@ for st, t, o in a:
 print(k2, kn)'''
 
 # 12478 КЕГЭ
-f = open('26_12478.txt')
+'''f = open('26_12478.txt')
 n = f.readline()
 st_ege = 1000
 end_ege = 18000
 rab = []
+ans = []
 a = []
 for i in f:
     st, end =  [int(x) for x in i.split()] # st - начало время обслуживания, end - окончание обслуживания
@@ -157,6 +158,132 @@ for i in range(len(a)):
     if a[i][1] <= st_ege:
         continue
     else:
-        if a[i][0] <= st_ege and a[i + 1][0] <= a[i][1]:
-            rab += [a[i][1] - a[i][0]]
-print(len(rab))
+        if a[i][0] <= st_ege and a[i + 1][1] > st_ege and a[i + 1][0] <= a[i][1]:
+            rab += [a[i][1] - st_ege]
+print(max(rab))
+for i in range(len(a) - 1):
+    if a[i][0] != a[i + 1][0]:
+        ans.append(a[i])
+        break
+
+for i in range(len(a) - 1):
+    if ans[-1][1] == a[i][0]:
+        for j in range(i, len(a)):
+            if a[i][0] != a[i + 1][0]:
+                ans.append(a[i])
+                break
+print(len(ans))'''
+
+# 11605 (доделать)
+'''f = open('26_11605.txt')
+n = f.readline()
+st_ege = 1000
+end_ege = 18000
+k = []
+ans = []
+a = []
+for i in f:
+    st, end =  [int(x) for x in i.split()]
+    a.append((st, end))
+a.sort()
+for i in range(len(a) - 1):
+    if a[i][1] == 10000:
+        k.append(a[i])
+print(len(k))
+for i in range(len(a) - 1):
+    if a[i][0] != a[i + 1][0]:
+        ans.append(a[i])
+        break
+m = []
+for i in range(len(a) - 1):
+    if ans[-1][1] <= a[i][0]:
+        m.append(a[i][1])
+        print(m)
+        if a[i][1] == max(m):
+            ans.append(a[i])
+            m = []
+print(10000 - len(ans))
+print(m)'''
+
+# 3761 Поляков
+'''f = open('26-45.txt')
+n = int(f.readline())
+k = 0
+mx = 0
+a = []
+for i in range(n):
+    x = int(f.readline())
+    a.append(x)
+a.sort()
+for i in range(0, len(a) - 1):
+    for j in range(i + 1, len(a)):
+        if (a[i] % 2 == 0 and a[j] % 2 == 0) or (a[i] % 2 != 0 and a[j] % 2 != 0):
+            sr = (a[i] + a[j]) // 2
+            l = 0
+            r = len(a) - 1
+            index = 0
+            while (l <= r):
+                index = (r + l) // 2
+                if a[index] == sr:
+                    k = k + 1
+                    mx = max(mx, a[index])
+                    break
+                if a[index] < sr:
+                    l = index + 1
+                else:
+                    r = index - 1
+print(k, mx)'''
+
+# 3762
+s = [int(x) for x in open('26-46.txt')][1:]
+def f(a, b, c):
+    a = int(a)
+    b = int(b)
+    c = int(c)
+    if (a + b + c) % 3 == 0:
+        if ((a + b + c) / 3) in s: return 1
+
+
+a = []
+c = 0
+for i in range(len(s) - 1):
+    for j in range(i + 1, len(s) - 1):
+        for m in range(j + 1, len(s)):
+            if f(s[i], s[j], s[m]) == 1:
+                c += 1
+                a.append((s[i] + s[j] + s[m]) / 3)
+print(c, min(a))
+
+# 7187
+'''f = open('26_13101.txt')
+n = int(f.readline())
+a = []
+for i in f:
+    st, t, o =  [int(x) for x in i.split()]
+    a.append((st, t, o))
+a.sort()
+okno1 = []
+okno2 = []
+kn = 0
+k2 = 0
+for st, t, o in a:
+    okno1 = [x for x in okno1 if x > st]
+    okno2 = [x for x in okno2 if x > st]
+    if o == 1 or (o == 0 and len(okno1) <= len(okno2)):
+        if len(okno1) >= 14:
+            kn += 1
+            continue
+        if len(okno1) == 0:
+            okno1 += [st + t]
+        else:
+            okno1 += [max(okno1) + t]
+    else:
+        if len(okno2) >= 14:
+            kn += 1
+            continue
+        k2 += 1
+        if len(okno2) == 0:
+            okno2 += [st + t]
+        else:
+            okno2 += [max(okno2) + t]
+print(k2, kn)'''
