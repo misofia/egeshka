@@ -235,7 +235,7 @@ for i in range(0, len(a) - 1):
 print(k, mx)'''
 
 # 3762
-s = [int(x) for x in open('26-46.txt')][1:]
+'''s = [int(x) for x in open('26-46.txt')][1:]
 def f(a, b, c):
     a = int(a)
     b = int(b)
@@ -252,7 +252,7 @@ for i in range(len(s) - 1):
             if f(s[i], s[j], s[m]) == 1:
                 c += 1
                 a.append((s[i] + s[j] + s[m]) / 3)
-print(c, min(a))
+print(c, min(a))'''
 
 # 7187
 '''f = open('26_13101.txt')
@@ -287,3 +287,56 @@ for st, t, o in a:
         else:
             okno2 += [max(okno2) + t]
 print(k2, kn)'''
+
+# 8512 КЕГЭ
+'''f = open('26_8512.txt')
+k = int(f.readline())
+n = int(f.readline())
+a = []
+for i in f:
+    st, end = [int(x) for x in i.split()]
+    a.append([st, end])
+a.sort()
+b = [0] * k # номер + 1 тк есть нулевая ячейка, которая на самом деле первая
+c = 0 # обслужeнные
+last_s = 0 # начало обслуживания текущего последнего багажа
+last_n = 0 # минимальный номер текущей последней ячейки
+for i in a:
+    s = i[0]
+    e = i[1]
+    for j in range(k):
+        if b[j] <= s:
+            b[j] = e + 1
+            c += 1
+            if s > last_s:
+                last_s = s
+                last_n = j + 1
+            break # работа с багажом закончена
+print(c, last_n)'''
+
+# 6406 Поляков (парковка)
+f = open('26-119.txt')
+n, l, m = [int(x) for x in f.readline().split()]
+a = []
+for s in f:
+    st, t, typ = [x for x in s.split()]
+    a.append([int(st),int(st) + int(t), typ])
+a.sort()
+park = [0] * (l + m) # места для автомобилей с 0 до l - 1, для автобусов с l до l + m - 1
+k_A = 0
+k_B = 0
+for i in a:
+    st, t, typ = i[0], i[1], i[2]
+    if typ == 'A':
+        for j in range(l + m):
+            if park[j] <= st:
+                park[j] = t
+                k_A += 1
+                break
+    else:
+        for j in range(l, l + m):
+            if park[j] <= st:
+                park[j] = t
+                k_B += 1
+                break
+print(k_B, n - k_A - k_B)
