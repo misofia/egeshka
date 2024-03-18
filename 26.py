@@ -315,7 +315,7 @@ for i in a:
 print(c, last_n)'''
 
 # 6406 Поляков (парковка)
-f = open('26-119.txt')
+'''f = open('26-119.txt')
 n, l, m = [int(x) for x in f.readline().split()]
 a = []
 for s in f:
@@ -339,4 +339,21 @@ for i in a:
                 park[j] = t
                 k_B += 1
                 break
-print(k_B, n - k_A - k_B)
+print(k_B, n - k_A - k_B)'''
+
+# 3763 Поляков
+s = [int(x) for x in open('26-47.txt')][1:]
+def f(x, y):
+    k = 0
+    for i in s:
+        if ((x + y) // 2) > i:
+            k += 1
+    return k
+
+
+a = []
+for m in s:
+    for n in s[:m]:
+        if f(m, n) > 0 and f(m, n) % 100 == 0:
+            a.append(f(m, n))
+print(len(a), max(a))
