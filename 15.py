@@ -228,7 +228,7 @@ for i in range(1, 11):
 print(k)'''
 
 # 1072
-a = set(range(1000))
+'''a = set(range(1000))
 p = {2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30}
 q = {1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31}
 def f(x):
@@ -241,10 +241,10 @@ def f(x):
 for x in range(-100, 1000):
     if f(x) == 0:
         a.remove(x)
-print(len(a))
+print(len(a))'''
 
 # 12924
-a = set(range(1000))
+'''a = set(range(1000))
 p = { 2, 4, 6, 8, 10, 12, 14, 16, 18, 20}
 q = { 3, 6, 9, 12, 15, 18, 21, 24, 27, 30}
 def f(x):
@@ -257,10 +257,10 @@ def f(x):
 for x in range(-100, 1000):
     if f(x) == 0:
         a.remove(x)
-print(len(a))
+print(len(a))'''
 
 # 4283
-a = set()
+'''a = set()
 p = {1, 3, 4, 9, 11, 13, 15, 17, 19, 21}
 q = {3, 6, 9, 12, 15, 18, 21, 24, 27, 30}
 def f(x):
@@ -273,10 +273,10 @@ def f(x):
 for x in range(-100, 1000):
     if f(x) == 0:
         a.add(x)
-print(9 * 3 * 21 * 15)
+print(9 * 3 * 21 * 15)'''
 
 # 3156
-a = set(range(1000))
+'''a = set(range(1000))
 p = {2, 4, 6, 8, 10, 12, 14, 16, 18, 20}
 q = {5, 10, 15, 20, 25, 30, 35, 40, 45, 50}
 def f(x):
@@ -289,10 +289,10 @@ def f(x):
 for x in range(-100, 1000):
     if f(x) == 0:
         a.remove(x)
-print(len(a))
+print(len(a))'''
 
 # 1409
-a = set()
+'''a = set()
 p = {2,4,6,8,10,12,14,16,18,20}
 q = {3,6,9,12,15,18,21,24,27,30}
 r = {12,24,36,48,60}
@@ -307,4 +307,38 @@ def f(x):
 for x in range(-100, 1000):
     if f(x) == 0:
         a.add(x)
-print(18 * 6)
+print(18 * 6)'''
+
+# ОТРЕЗКИ
+
+# 4972
+'''from itertools import *
+def f(x):
+    P = 25 <= x <= 50
+    Q = 54 <= x <= 75
+    A = a1 <= x <= a2
+    return Q <= ((P == Q) or ((not P) <= A))
+
+
+Ox = [i/4 for i in range(24 * 4, 76 * 4)]
+ans = []
+for a1, a2 in combinations(Ox, 2):
+    if all(f(x) == 1 for x in Ox):
+        ans.append(a2 - a1)
+print(min(ans))'''
+
+# 4768
+from itertools import *
+def f(x):
+    P = 1 <= x <= 98
+    Q = 25 <= x <= 42
+    A = a1 <= x <= a2
+    return Q <= (((not P) and Q) <= A)
+
+
+Ox = [i/4 for i in range(0 * 4, 99 * 4)]
+ans = []
+for a1, a2 in combinations(Ox, 2):
+    if all(f(x) == 1 for x in Ox):
+        ans.append(a2 - a1)
+print(min(ans))
