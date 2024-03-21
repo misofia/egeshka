@@ -311,7 +311,7 @@ print(18 * 6)'''
 
 # ОТРЕЗКИ
 
-# 4972
+# 4972 Поляков
 '''from itertools import *
 def f(x):
     P = 25 <= x <= 50
@@ -328,7 +328,7 @@ for a1, a2 in combinations(Ox, 2):
 print(min(ans))'''
 
 # 4768
-from itertools import *
+'''from itertools import *
 def f(x):
     P = 1 <= x <= 98
     Q = 25 <= x <= 42
@@ -341,4 +341,29 @@ ans = []
 for a1, a2 in combinations(Ox, 2):
     if all(f(x) == 1 for x in Ox):
         ans.append(a2 - a1)
-print(min(ans))
+print(min(ans))'''
+
+# 6639
+'''def f(x):
+    P = 5 <= x <= 54
+    Q = 50 <= x <= 93
+    return ((not P) and Q) <= (x > A)
+
+
+for A in range(-500, 500):
+    k = 0
+    for x in range(-500, 500):
+        if f(x) == 0:
+            k += 1
+    if k == 20:
+        print(A)'''
+
+# 4137
+'''def f(x):
+    p = x in {48, 52, 56}
+    q = 29 <= x <= 47
+    return (((x % 3 != 0) and (not p)) <= ((abs(x - 50) <= 7) <= q)) or (x & a == 0)
+
+for a in range(1, 500):
+    if all(f(x) == 1 for x in range(500)):
+        print(a)'''

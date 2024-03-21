@@ -353,7 +353,8 @@ def f(x, y):
 
 a = []
 for m in s:
-    for n in s[:m]:
-        if f(m, n) > 0 and f(m, n) % 100 == 0:
-            a.append(f(m, n))
-print(len(a), max(a))
+    for n in s:
+        if m != n:
+            if f(m, n) > 0 and f(m, n) % 100 == 0:
+                a.append(f(m, n))
+print(len(a) / 2, max(a))
