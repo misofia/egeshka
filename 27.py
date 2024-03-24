@@ -234,5 +234,90 @@ for i in range(1, 1000):
     c += k[i] * k[2000 - i]
 print(c)'''
 
-# 10
+# 10 максимальную нечётную пару
 # (A)
+'''f = open('27A_2726.txt')
+n = int(f.readline())
+k1 = []
+k0 = []
+for i in range(n):
+    x = int(f.readline())
+    if x % 2 == 0: k1 += [x]
+    else: k0 += [x]
+k1.sort()
+k0.sort()
+print(k1[-1] + k0[-1])
+
+# (B)
+f = open('27B_2726.txt')
+n = int(f.readline())
+k1 = []
+k0 = []
+for i in range(n):
+    x = int(f.readline())
+    if x % 2 == 0: k1 += [x]
+    else: k0 += [x]
+k1.sort()
+k0.sort()
+print(k1[-1] + k0[-1])'''
+
+# 11
+# (A)
+'''f = open('27A_2727.txt')
+n = int(f.readline())
+k31 = []
+k = []
+for i in range(n):
+    x = int(f.readline())
+    if x % 31 == 0: k31 += [x]
+    else: k += [x]
+k31.sort()
+k.sort()
+print(min(k) * min(k31))
+
+# (B)
+f = open('27B_2727.txt')
+n = int(f.readline())
+k31 = []
+k = []
+for i in range(n):
+    x = int(f.readline())
+    if x % 31 == 0: k31 += [x]
+    else: k += [x]
+k31.sort()
+k.sort()
+print(min(k[0] * k31[0], k31[0] * k31[1]))'''
+
+# 12
+# (A)
+'''f = open('27A_2728.txt')
+n = int(f.readline())
+k23 = []
+k = []
+for i in range(n):
+    x = int(f.readline())
+    if x % 23 == 0: k23 += [x]
+    else: k += [x]
+k23.sort()
+k.sort()
+print(max(k[-2] + k23[-1], k23[-1] + k23[-2]))
+
+# (B)
+f = open('27B_2728.txt')
+n = int(f.readline())
+k23 = []
+k = []
+for i in range(n):
+    x = int(f.readline())
+    if x % 23 == 0: k23 += [x]
+    else: k += [x]
+k23.sort()
+k.sort()
+print(max(k23[-3] + k23[-1], k23[-1] + k[-2]))'''
+
+# 13
+# (A)
+f = open('27A_2729.txt')
+n = int(f.readline())
+k11 = []
+k = []
