@@ -317,7 +317,16 @@ print(max(k23[-3] + k23[-1], k23[-1] + k[-2]))'''
 
 # 13
 # (A)
-f = open('27A_2729.txt')
+'''f = open('27A_2729.txt')
 n = int(f.readline())
 k11 = []
-k = []
+k = []'''
+
+
+# РЕШУ ЕГЭ 48448
+f = open('27-B.txt')
+n = int(f.readline())
+k = [0] * 3
+for i in range(n):
+    x = int(f.readline())
+    k[x % 3] += 1
