@@ -53,7 +53,7 @@ print(len(a))'''
         print(n)'''
 
 # троичная
-def f(x):
+'''def f(x):
     x3 = ''
     while x != 0:
         x3 += str(x % 3)
@@ -67,4 +67,4 @@ for n in range(1, 1000):
     else:
         r = f(n) + f((n % 3) * 4)
     if int(r, 3) < 199:
-        print(n)
+        print(n)'''

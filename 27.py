@@ -324,9 +324,34 @@ k = []'''
 
 
 # РЕШУ ЕГЭ 48448
-f = open('27-B.txt')
+'''f = open('27-B.txt')
 n = int(f.readline())
 k = [0] * 3
 for i in range(n):
     x = int(f.readline())
-    k[x % 3] += 1
+    k[x % 3] += 1'''
+
+# Поляков 2660
+'''f = open('27-B.txt')
+n = int(f.readline())
+a = []
+for i in range(n):
+    p, k = map(int, (f.readline().split()))
+    a.append([p, k])
+# print(a)
+m = []
+for i in range(n):
+    m.append(max(a[i][0], a[i][1]))
+print(m)'''
+
+# 2669
+f = open('27-9a.txt')
+n = int(f.readline())
+a = []
+for i in range(n):
+    p = int(f.readline())
+    a.append(p)
+print(a)
+for i in range(i, n - 6):
+    for j in range(i + 1, n):
+        

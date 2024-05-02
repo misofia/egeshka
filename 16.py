@@ -60,8 +60,17 @@ while n < 1000:
     n += 1'''
 
 
-def f(n):
+'''def f(n):
     if n <= 5: return n
     if n > 5: return 2 * n - 8 + f(n -2) + f(n - 1) // 8
 
-print(f(163))
+print(f(163))'''
+
+from sys import *
+setrecursionlimit(10000)
+def f(n):
+    if n <= 3: return 2025
+    if n > 3: return 3 * (n - 1) * f(n - 2)
+
+
+print(f(2027)/f(2023))
