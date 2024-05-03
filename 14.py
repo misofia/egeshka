@@ -55,3 +55,14 @@ print(a27)'''
     a = a1 + a2
     if a % 26 == 0:
         print(x, a // 26)'''
+
+# ЕГКР
+from string import *
+alf = ascii_letters
+a = 4 * 3125 ** 2019 + 3 * 625 ** 2020 - 2 * 125 ** 2021 + 25 ** 2022 - 4 * 5 ** 2023 - 2024
+a25 = 0
+while a != 0:
+    if a % 25 > 10:
+        a25 += 1
+    a //= 25
+print(alf, a25)

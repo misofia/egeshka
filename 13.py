@@ -69,3 +69,13 @@ for ip in net:
     if ip2.count('1') % 4 == 0:
         k += 1
 print(k)'''
+
+# ЕГКР
+from ipaddress import *
+k = 0
+net = ip_network('112.208.0.0/255.255.128.0', 0)
+for ip in net:
+    ip = bin(int(ip))[2:]
+    if ip.count('1') % 11 == 0:
+        k += 1
+print(k)
