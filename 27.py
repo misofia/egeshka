@@ -331,27 +331,56 @@ for i in range(n):
     x = int(f.readline())
     k[x % 3] += 1'''
 
-# Поляков 2660
-'''f = open('27-B.txt')
-n = int(f.readline())
+# 6149 Поляков
+'''f = open('27-142a.txt')
+n, k, m = map(int, f.readline().split())
 a = []
 for i in range(n):
-    p, k = map(int, (f.readline().split()))
-    a.append([p, k])
-# print(a)
-m = []
-for i in range(n):
-    m.append(max(a[i][0], a[i][1]))
-print(m)'''
-
-# 2669
-f = open('27-9a.txt')
-n = int(f.readline())
-a = []
-for i in range(n):
-    p = int(f.readline())
-    a.append(p)
+    km, pis = map(int, f.readline().split())
+    sumk = pis // 20 if pis % 20 == 0 else pis // 20 + 1
+    a.append((km, sumk))
+a.sort()
 print(a)
-for i in range(i, n - 6):
+d = [0] * (k + 1)
+for i in range(n): # i - км дороги, где можно поставить почтамт
+    ind, sumk = a[i][0], a[i][1]
+    d[ind] = sumk'''
+
+# ЕГКР (2)
+# A
+f = open('2_27_A.txt')
+n = int(f.readline())
+a = []
+summ = []
+for i in range(n):
+    x = int(f.readline())
+    a.append(x)
+for i in range(n):
+    s = 0
+    l = 0
     for j in range(i + 1, n):
-        
+        s += a[j]
+        l += 1
+        if s % 263 == 0:
+            summ.append(l)
+print(max(summ))
+# B
+
+
+# (1)
+f = open('27_A.txt')
+n = int(f.readline())
+a = []
+summ = []
+for i in range(n):
+    x = int(f.readline())
+    a.append(x)
+for i in range(n):
+    s = 0
+    l = 0
+    for j in range(i + 1, n):
+        s += a[j]
+        l += 1
+        if s % 137 == 0:
+            summ.append(l)
+print(max(summ))

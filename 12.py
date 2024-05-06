@@ -114,11 +114,23 @@ for x in range(20):
         if a.count('1') == 40 and a.count('2') > 50:
             print(a.count('2'))'''
 
-for n in range(3, 1001):
+'''for n in range(3, 1001):
     s = '9' + '4' * n
     while '94' in s or '644' in s or '444' in s:
         s = s.replace('94', '4', 1)
         s = s.replace('644', '49', 1)
         s = s.replace('444', '6', 1)
     if s.count('4') != 0 and n // s.count('4') == 18:
-        print(n)
+        print(n)'''
+
+# ЕГКР
+maxs = 0
+for n in range(3, 10000):
+    a = '8' + '4' * n
+    while '11' in a or '444' in a or '8888' in a:
+        a = a.replace('11', '4', 1)
+        a = a.replace('444', '88', 1)
+        a = a.replace('8888', '1', 1)
+    s = a.count('1') + a.count('4') * 4 + a.count('8') * 8
+    maxs = max(s, maxs)
+print(maxs)
